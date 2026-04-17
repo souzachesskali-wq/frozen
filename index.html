@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frozen Dream | Gelatos Artesanais</title>
+    <style>
+        /* Estilos Gerais */
+        :root {
+            --bordo: #5a0a1a;
+            --dourado: #d4af37;
+            --branco: #ffffff;
+            --gelo: #f9f9f9;
+            --texto-claro: #ece0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', serif;
+        }
+
+        body {
+            background-color: var(--gelo);
+            color: var(--bordo);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--bordo);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--dourado);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: var(--dourado);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: var(--dourado);
+        }
+
+        .btn-parceiro {
+            background-color: var(--dourado);
+            color: var(--bordo);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-parceiro:hover {
+            background-color: var(--branco);
+            transform: scale(1.05);
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            background: linear-gradient(135deg, var(--bordo) 0%, #3a0611 100%);
+            color: var(--branco);
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--dourado);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: var(--texto-claro);
+        }
+
+        .hero-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 80%;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+        }
+
+        /* Vitrine de Sabores com Fotos */
+        .sabores {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: var(--branco);
+        }
+
+        .sabores h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--bordo);
+        }
+
+        .grid-sabores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--gelo);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden; /* Importante para manter a imagem dentro do card */
+            text-align: left; /* Alinha o texto do card à esquerda */
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            border-color: var(--dourado);
+        }
+
+        /* Imagens nos Cards */
+        .card-img {
+            width: 100%;
+            height: 200px; /* Altura fixa para as fotos nos cards */
+            object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+            border-bottom: 2px solid var(--dourado);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--bordo);
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card-destaque {
+            color: var(--dourado);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--bordo);
+            color: var(--texto-claro);
+            text-align: center;
+            padding: 50px 5%;
+            margin-top: 50px;
+            border-top: 1px solid #7a0e23;
+        }
+
+        .footer-contato {
+            margin-bottom: 25px;
+        }
+
+        .footer-contato a {
+            color: var(--dourado);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-contato p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade Celular */
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.4rem; }
+            .hero-text p { font-size: 1.1rem; }
+            nav { display: none; } /* Simplicidade para apresentação */
+            .hero { text-align: center; }
+            .hero-text { padding-right: 0; }
+            .hero-img { margin-top: 40px; }
+            .hero-img img { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">FROZEN DREAM</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Nossos Sabores</a>
+            <a href="#">Sobre Nós</a>
+            <a href="#" class="btn-parceiro">Pedido B2B</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>O Sabor Real da Fruta em cada Colherada</h1>
+            <p>Gelatos artesanais feitos com ingredientes selecionados, menos processos industriais e muito mais frescor para o seu negócio.</p>
+            <a href="mailto:comercial@frozendream.com.br" class="btn-parceiro" style="padding: 15px 35px; font-size: 1.1rem; border-radius: 30px;">Fale Conosco</a>
+        </div>
+        <div class="hero-img">
+            <img src="WhatsApp Image 2026-03-25 at 19.04.56.jpeg" alt="Pote Frozen Dream Premium">
+        </div>
+    </section>
+
+    <section class="sabores">
+        <h2>Os Clássicos Premium</h2>
+        <div class="grid-sabores">
+            
+            <div class="card">
+                <img src="morango.jpg" alt="Gelato artesanal de Morango" class="card-img">
+                <div class="card-body">
+                    <h3>🍓 Morango Silvestre</h3>
+                    <p>Feito com morangos frescos selecionados e pedaços reais da fruta. Intenso e refrescante.</p>
+                    <p class="card-destaque">100% Natural | Sem Corantes</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="maracuja.jpg" alt="Gelato artesanal de Maracujá" class="card-img">
+                    <h3>🟡 Maracujá do Campo</h3>
+                    <p>O equilíbrio perfeito entre a acidez natural e a cremosidade do gelato. Pura refrescância.</p>
+                    <p class="card-destaque">Pura Polpa da Fruta</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="chocolate.jpg" alt="Gelato artesanal de Chocolate" class="card-img">
+                <div class="card-body">
+                    <h3>🍫 Chocolate Intenso 70%</h3>
+                    <p>Cacau intenso de alta qualidade para uma experiência rica e marcante. Sabor sofisticado.</p>
+                    <p class="card-destaque">Cacau de Origem</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="flocos.jpg" alt="Gelato artesanal de Flocos" class="card-img">
+                <div class="card-body">
+                    <h3>❄️ Flocos de Baunilha</h3>
+                    <p>Nossa base cremosa artesanal com lascas crocantes de chocolate meio amargo.</p>
+                    <p class="card-destaque">Artesanal Clássico</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-contato">
+            <p><strong>Dúvidas ou Pedidos B2B?</strong></p>
+            <p>E-mail comercial: <a href="mailto:comercial@frozendream.com.br">comercial@frozendream.com.br</a></p>
+            <p>WhatsApp Comercial: <strong>(27) 98137 2032</strong></p>
+        </div>
+        <p>&copy; 2024 Frozen Dream Brasil - O sabor real da fruta para o seu negócio.</p>
+    </footer>
+
+</body>
+</html>
